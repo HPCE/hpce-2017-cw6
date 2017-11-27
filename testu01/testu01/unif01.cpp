@@ -846,7 +846,7 @@ static void WrCombGen2 (void *vsta)
 
 
 static unif01_Gen * CreateCombGen2 (unif01_Gen *g1, unif01_Gen *g2, 
-   char *mess, const char *name)
+   const char *mess, const char *name)
 {
    unif01_Gen *gen;
    unif01_Comb2_Param *paramC;
@@ -890,7 +890,7 @@ unif01_Gen * unif01_CreateCombAdd2 (unif01_Gen *g1, unif01_Gen *g2, const char *
 
 
 unif01_Gen * unif01_CreateCombXor2 (unif01_Gen *g1, unif01_Gen *g2,
-   char *Mess)
+   const char *Mess)
 {
    unif01_Gen *gen;
    gen = CreateCombGen2 (g1, g2, Mess, "\nunif01_CreateCombXor2");
