@@ -29,18 +29,25 @@ at the same time.** You can use two _different_ instances of
 Your goal is to optimise the TestU01 library with three use-cases
 in mind (or two for a pair):
 
-- Certification: making sure that an RNG can pass a relatively slow
+- [Certification](drivers/driver_search.cpp): making sure that an RNG can pass a relatively slow
   standardised test-suite, in this case the Crush benchmark. The
   metric is simply the execution time (latency).
   
-- Search: evaluating many different RNG instances in order to search
+- [Search](drivers/driver_search.cpp): evaluating many different RNG instances in order to search
   for good RNG parameters. The metric is how many times the SmallCrush
-  benchmark can be executed per second.
+  benchmark can be executed per second, which is measured as the number
+  of complete test results printed to stdout, divided by the amount of
+  time the program is allowed to run before the user terminates it (this
+  will be of the order of 10s of seconds).
 
-- Stress testing : Trying to test as large a sample
+- [Stress testing](drivers/driver_stress.cpp) : Trying to test as large a sample
   as possible within a time budget, using the benchmark Rabbit. Given a
-  time-budget `t`, your program should respond within 0.5 sec with a bid size `n`.
-  If the actual execution time is `g`, then the metric is `min(1,exp(-g/t))*log2(n)`.
+  time-budget `t` seconds (passed as a command-line parameter), your program should
+  respond within 0.5 sec with a bid size `n` printed to `stdout`, and then
+  proceed to apply the test. If the total measured execution time of the
+  program is `g` seconds, then the metric is `min(1,exp(-g/t))*log2(n)`.
+  See [drivers/driver_stress.cpp](drivers/driver_stress.cpp) as a model
+  of the logic (though feel free to change the internals).
 
 As part of the input to the use-cases there is also an RNG source
 called the "workload" (see `include/workload.hpp`). This is code
@@ -59,16 +66,21 @@ from the C++ standard library. The default makefile knows
 how to build `bin/${use-case}_${workload}` from `drivers/driver_${use-case}.cpp`
 and `workload/workload_${workload}.cpp`.
 
-Stress testing for `std` workload:
+Stress testing for `std` workload with a random deadline:
 ```
 $ make bin/stress_std
 $ bin/stress_std
 ```
+or with a chosen deadline of 10 seconds:
+```
+$ make bin/stress_std
+$ bin/stress_std 10.0
+```
 
-Stress testing for `std` workload:
+Search for `std` workload:
 ```
 $ make bin/search_std
-$ bin/stress_std
+$ bin/search_std
 ```
 
 Certification for `std` workload:
