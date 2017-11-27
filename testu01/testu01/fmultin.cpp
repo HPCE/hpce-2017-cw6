@@ -873,7 +873,7 @@ void fmultin_Serial1 (ffam_Fam *fam, smultin_Param *spar,
    Par[6] = A_MULT;
 
    if (spar == NULL)
-      spar = &smultin_ParamDefault;
+      spar = (smultin_Param *)&smultin_ParamDefault;
    if ((spar->GenerCell != smultin_GenerCellSerial) 
         && (spar->GenerCell != smultin_GenerCellSerial2)) {
       spar->GenerCell = smultin_GenerCellSerial;
@@ -913,7 +913,7 @@ void fmultin_SerialOver1 (ffam_Fam *fam, smultin_Param *spar,
    Par[6] = A_MULT;
 
    if (spar == NULL)
-      spar = &smultin_ParamDefault;
+      spar = (smultin_Param *)&smultin_ParamDefault;
    if ((spar->GenerCell != smultin_GenerCellSerial) 
          && (spar->GenerCell != smultin_GenerCellSerial2)) {
       spar->GenerCell = smultin_GenerCellSerial;
@@ -954,7 +954,7 @@ void fmultin_SerialBits1 (ffam_Fam *fam, smultin_Param *spar,
    Par[5] = FALSE;
 
    if (spar == NULL)
-      spar = &smultin_ParamDefault;
+      spar = (smultin_Param *)&smultin_ParamDefault;
    if ((spar->GenerCell != smultin_GenerCellSerial) 
             && (spar->GenerCell != smultin_GenerCellSerial2)) {
       spar->GenerCell = smultin_GenerCellSerial;
@@ -995,7 +995,7 @@ void fmultin_SerialBitsOver1 (ffam_Fam *fam, smultin_Param *spar,
    Par[5] = TRUE;
 
    if (spar == NULL)
-      spar = &smultin_ParamDefault;
+      spar = (smultin_Param *)&smultin_ParamDefault;
    if ((spar->GenerCell != smultin_GenerCellSerial) 
             && (spar->GenerCell != smultin_GenerCellSerial2)) {
       spar->GenerCell = smultin_GenerCellSerial;
@@ -1037,7 +1037,7 @@ void fmultin_Permut1 (ffam_Fam *fam, smultin_Param *spar,
    Par[6] = A_PERM;
 
    if (spar == NULL)
-      spar = &smultin_ParamDefault;
+      spar = (smultin_Param *)&smultin_ParamDefault;
    if ((spar->GenerCell != smultin_GenerCellPermut)) {
       spar->GenerCell = smultin_GenerCellPermut;
       util_Warning (TRUE,
