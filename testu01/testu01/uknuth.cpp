@@ -64,7 +64,7 @@ void ran_array1(long *aa,int n)    /* put n new random numbers in aa */
 /* long *aa;    destination */
 /*  int n;       array length (must be at least KK) */
 {
-  register int i,j;
+  /* register */ int i,j;
   for (j=0;j<KK;j++) aa[j]=ran_x1[j];
   for (;j<n;j++) aa[j]=mod_diff(aa[j-KK],aa[j-LL]);
   for (i=0;i<LL;i++,j++) ran_x1[i]=mod_diff(aa[j-KK],aa[j-LL]);
@@ -79,9 +79,9 @@ void ran_array1(long *aa,int n)    /* put n new random numbers in aa */
 void ran_start1(long seed)    /* do this before using ran_array1 */
 //long seed;            /* selector for different streams */
 {
-  register int t,j;
+  /* register */ int t,j;
   long x[KK+KK-1];              /* the preparation buffer */
-  register long ss=evenize(seed+2);
+  /* register */ long ss=evenize(seed+2);
   for (j=0;j<KK;j++) {
     x[j]=ss;                      /* bootstrap the buffer */
     ss<<=1; if (ss>=MM) ss-=MM-2; /* cyclic shift 29 bits */
@@ -246,7 +246,7 @@ void ranf_array1(double *aa,int n)    /* put n new random fractions in aa */
 //double *aa;   /* destination */
 //int n;      /* array length (must be at least KK) */
 {
-  register int i,j;
+  /* register */ int i,j;
   for (j=0;j<KK;j++) aa[j]=ran_u1[j];
   for (;j<n;j++) aa[j]=mod_sum(aa[j-KK],aa[j-LL]);
   for (i=0;i<LL;i++,j++) ran_u1[i]=mod_sum(aa[j-KK],aa[j-LL]);
@@ -260,7 +260,7 @@ void ranf_array1(double *aa,int n)    /* put n new random fractions in aa */
 void ranf_start1(long seed)    /* do this before using ranf_array1 */
 //  long seed;            /* selector for different streams */
 {
-  register int t,s,j;
+  /* register */ int t,s,j;
   double u[KK+KK-1],ul[KK+KK-1];
   double ulp=(1.0/(1L<<30))/(1L<<22);               /* 2 to the -52 */
   double ss=2.0*ulp*((seed&0x3fffffff)+2);
@@ -437,7 +437,7 @@ void ran_array(aa,n)    /* put n new random numbers in aa */
   int n;      /* array length (must be at least KK) */
 #endif
 {
-  register int i,j;
+  /* register */ int i,j;
   for (j=0;j<KK;j++) aa[j]=ran_x[j];
   for (;j<n;j++) aa[j]=mod_diff(aa[j-KK],aa[j-LL]);
   for (i=0;i<LL;i++,j++) ran_x[i]=mod_diff(aa[j-KK],aa[j-LL]);
@@ -471,9 +471,9 @@ void ran_start(seed)    /* do this before using ran_array */
   long seed;            /* selector for different streams */
 #endif
 {
-  register int t,j;
+  /* register */ int t,j;
   long x[KK+KK-1];              /* the preparation buffer */
-  register long ss=(seed+2)&(MM-2);
+  /* register */ long ss=(seed+2)&(MM-2);
   for (j=0;j<KK;j++) {
     x[j]=ss;                      /* bootstrap the buffer */
     ss<<=1; if (ss>=MM) ss-=MM-2; /* cyclic shift 29 bits */
@@ -621,7 +621,7 @@ void ranf_array(aa,n)    /* put n new random fractions in aa */
   int n;      /* array length (must be at least KK) */
 #endif
 {
-  register int i,j;
+  /* register */ int i,j;
   for (j=0;j<KK;j++) aa[j]=ran_u[j];
   for (;j<n;j++) aa[j]=mod_sum(aa[j-KK],aa[j-LL]);
   for (i=0;i<LL;i++,j++) ran_u[i]=mod_sum(aa[j-KK],aa[j-LL]);
@@ -655,7 +655,7 @@ void ranf_start(seed)    /* do this before using ranf_array */
   long seed;            /* selector for different streams */
 #endif
 {
-  register int t,s,j;
+  /* register */ int t,s,j;
   double u[KK+KK-1];
   double ulp=(1.0/(1L<<30))/(1L<<22);               /* 2 to the -52 */
   double ss=2.0*ulp*((seed&0x3fffffff)+2);
