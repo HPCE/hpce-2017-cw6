@@ -78,7 +78,7 @@ $ bin/certify_std
 ```
 
 Compilation for assesment will consist of copying a workload
-into `workloads`, then running `make bin/{use-case}_{workload}.
+into `workloads`, then running `make bin/{use-case}_{workload}`.
 Execution will start from the root directory of the repository,
 as in the examples above.
 
