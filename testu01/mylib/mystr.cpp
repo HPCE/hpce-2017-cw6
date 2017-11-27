@@ -160,7 +160,7 @@ void mystr_Subst (char source[], const char OldPattern[], const char NewPattern[
 void mystr_Position (const char Substring[], const char Source[], unsigned int at,
                      unsigned int *pos, int *found)
 {
-   char *result = strstr (Source + at, Substring);
+   const char *result = strstr (Source + at, Substring);
    if (at > strlen (Source))
       util_Error ("mystr_Position : Index out of array bound.");
    if (result != NULL) {
