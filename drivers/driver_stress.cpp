@@ -17,7 +17,7 @@ double score(double n, double g, double t)
       s *= exp(-r);
    }
    
-   return log(n)/log(2.0) * r;
+   return log(n)/log(2.0) * s;
 }
 
 int main (int argc, char *argv[])
