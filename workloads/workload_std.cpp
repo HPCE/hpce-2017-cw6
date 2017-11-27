@@ -3,6 +3,7 @@
 #include <string>
 #include <random>
 #include <cassert>
+#include <mutex>
 
 static int n=0;
 static int Count=0;
@@ -98,11 +99,16 @@ static RNGImpl *createNext()
     return n;
 }
 
-static RNGImpl *g_curr=createNext();
+static std::mutex g_mutex;
+
+static RNGImpl *g_curr=0;
 
 
 void workload_Next()
 {
+    // Stop potentially racing access to g_curr versus target of c_curr.
+    std::lock_guard<std::mutex> lock(g_mutex);
+
     if(g_curr){
         delete g_curr;
     }
@@ -117,6 +123,13 @@ std::string workload_Name(unif01_Gen *gen)
 
 unif01_Gen *workload_Create()
 {
+    // Complete paranoia versus static initialisation of g_curr
+    std::lock_guard<std::mutex> lock(g_mutex);
+
+    if(g_curr==0){
+        g_curr=createNext();
+    }
+
     RNGImpl *c=g_curr->clone();
     return &c->m_gen;
 }
