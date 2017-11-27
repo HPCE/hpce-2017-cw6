@@ -1,7 +1,7 @@
 CPPFLAGS += -I include -I testu01/include
 CPPFLAGS += -g -O3
 
-CPPFLAGS += -fpermissive -std=c++11 -pthread
+CPPFLAGS += -std=c++11 -pthread
 
 PROBDIST_SRC = $(wildcard testu01/probdist/*.cpp)
 TESTU01_SRC = $(filter-out testu01/testu01/scatter.cpp, $(wildcard testu01/testu01/*.cpp))
