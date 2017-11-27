@@ -1,0 +1,10 @@
+*.o
+*.obj
+*.exe
+*.pch
+*.lib
+*.a
+*.stackdump
+
+bin/*
+lib/*
