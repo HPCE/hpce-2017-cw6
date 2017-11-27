@@ -9,9 +9,9 @@
 
  
 #define util_Error(S) do { \
-   printf ("\n\n******************************************\n"); \
-   printf ("ERROR in file %s   on line  %d\n\n", __FILE__, __LINE__); \
-   printf ("%s\n******************************************\n\n", S); \
+   fprintf (stderr, "\n\n******************************************\n"); \
+   fprintf (stderr, "ERROR in file %s   on line  %d\n\n", __FILE__, __LINE__); \
+   fprintf (stderr, "%s\n******************************************\n\n", S); \
    exit (EXIT_FAILURE); \
    } while (0)
  
@@ -23,9 +23,9 @@
  
 #define util_Warning(Cond,S) do { \
    if (Cond) { \
-      printf ("*********  WARNING "); \
-      printf ("in file  %s  on line  %d\n", __FILE__, __LINE__); \
-      printf ("*********  %s\n", S); } \
+      fprintf (stderr, "*********  WARNING "); \
+      fprintf (stderr, "in file  %s  on line  %d\n", __FILE__, __LINE__); \
+      fprintf (stderr, "*********  %s\n", S); } \
    } while (0)
  
 
