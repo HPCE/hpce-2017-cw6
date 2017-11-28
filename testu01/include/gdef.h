@@ -62,8 +62,11 @@ typedef int  lebool;
 #endif
 
 
-
+#ifdef __MINGW32__
+#define USE_ANSI_CLOCK
+#else
 #undef USE_ANSI_CLOCK
+#endif
 
 
 

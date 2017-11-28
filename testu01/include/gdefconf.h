@@ -17,9 +17,10 @@
 
 /* #undef HAVE_MATHEMATICA */
 
+#ifndef __MINGW32__
 #define HAVE_SYS_UTSNAME_H 1
-
 #define HAVE_UNISTD_H 1
+#endif
 
 #define HAVE_STDINT_H 1
 
