@@ -5,6 +5,12 @@ Group name : xxx
 
 Group members (Imperial login) : aaa, bbb, ccc
 
+Use-case   |  Machine (g3.4xlarge or c4.8xlarge)
+-----------|------------------------------------
+Stress     | xxx
+Certify    | xxx
+Search     | xxx
+
 When asked for who is responsible for things, these are
 to gently steer marks where appropriate, e.g. for a
 particularly good idea. The change in marks is not
@@ -40,7 +46,7 @@ Implementation : (Imperial login)
 
 (at most 50 words)
 
-Identify two (pairs) or three (tripls) further changes that should be made
+Identify two (pairs) or three (triples) further changes that should be made
 ==========================================================================
 
 These can include API changes, restructuring, moving to a
