@@ -29,7 +29,7 @@ at the same time.** You can use two _different_ instances of
 Your goal is to optimise the TestU01 library with three use-cases
 in mind (or two for a pair):
 
-- [Certification](drivers/driver_search.cpp): making sure that an RNG can pass a relatively slow
+- [Certification](drivers/driver_certify.cpp): making sure that an RNG can pass a relatively slow
   standardised test-suite, in this case the Crush benchmark. The
   metric is simply the execution time (latency).
   
