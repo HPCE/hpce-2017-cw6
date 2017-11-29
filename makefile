@@ -32,15 +32,15 @@ WORKLOADS := $(patsubst workloads/workload_%.cpp,%,$(wildcard workloads/*.cpp))
 
 bin/certify_% : drivers/driver_certify.cpp workloads/workload_%.cpp $(TESTU01_LIBS)
 	mkdir -p bin
-	g++ $(CPPFLAGS) -o $@ $(LDFLAGS) $< workloads/workload_$*.cpp $(LDLIBS) $(TESTU01_LIBS)
+	g++ $(CPPFLAGS) -o $@ $(LDFLAGS) $< workloads/workload_$*.cpp $(TESTU01_LIBS) $(LDLIBS)
 
 bin/stress_% : drivers/driver_stress.cpp workloads/workload_%.cpp $(TESTU01_LIBS)
 	mkdir -p bin
-	g++ $(CPPFLAGS) -o $@ $(LDFLAGS) $< workloads/workload_$*.cpp $(LDLIBS) $(TESTU01_LIBS)
+	g++ $(CPPFLAGS) -o $@ $(LDFLAGS) $< workloads/workload_$*.cpp $(TESTU01_LIBS) $(LDLIBS)
 
 bin/search_% : drivers/driver_search.cpp workloads/workload_%.cpp $(TESTU01_LIBS)
 	mkdir -p bin
-	g++ $(CPPFLAGS) -o $@ $(LDFLAGS) $< workloads/workload_$*.cpp $(LDLIBS) $(TESTU01_LIBS)
+	g++ $(CPPFLAGS) -o $@ $(LDFLAGS) $< workloads/workload_$*.cpp $(TESTU01_LIBS) $(LDLIBS)
 
 
 print_all_drivers:
