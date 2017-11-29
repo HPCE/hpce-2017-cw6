@@ -1,6 +1,8 @@
 HPCE 2017 CW6
 =============
 
+_(2017/11/28 : See the end of the readme for some additional notes)_
+
 The goal of this coursework is to take an existing library
 called [TestU01](http://simul.iro.umontreal.ca/testu01/tu01.html),
 and parallelise, optimise, or otherwise accelerate it.
@@ -183,3 +185,77 @@ You may be confused about how to get started. Some suggestions are:
   identify the effort versus improvement of each.
   
 - Allocate strategies to people and get started.
+
+Additional notes
+----------------
+
+### Problem complexity (2017/11/29)
+
+A few people have been getting a bit frustrated, or worried
+that they can't immediately see what to do (while I can see
+that others are happily ticking along with parallelising, so
+it is not a uniform experience).
+
+There is no new information to come (as we have no more
+lectures), and the only big hint is in the existing readme
+and the way the coursework is setup (it requires thinking
+about the problem at a high-level).
+
+It is a difficult task, and part of the approach is about
+being realistic. So some generic advice/observations:
+
+- Don't start at the lowest-level. Initial profiling is not
+  supposed to help you optimise, it is supposed to help
+  you understand where the hot-spots are. 
+
+- You shouldn't be expecting huge easy speed-ups, as that doesn't
+  happen in most applications. There are a number of
+  initial opportunities that can be identified (some of
+  which are very effective), but each one requires changing
+  the code in a few places, and thinking carefully about
+  whether it is safe.
+
+- There is no correct answer or single point of attack. I
+  have identified multiple sources of speed-up in each use-case
+  (and exploited them), so I know they are there. They also
+  align well with the lectures and concepts taught in the course,
+  but you have to look for them.
+
+- Some use-cases are intrinsically harder than others, due to the
+  types of potential parallelism and optimisations at play.
+  Some can be made to scale linearly, some can't, but they can
+  all be made faster with parallelism, and faster still with
+  restructuring and optimisation.
+
+- You need to decide an appropriate level of time investment,
+  then stop. The EEE guidelines for a 100% coursework course
+  are an **upper-bound** of 150 hours total, so about 130 hours
+  max on the coursework parts. Hopefully most people spend much
+  less than this - personally I would probably invest at most
+  20 hours per-person of _active_ time in CW6.
+  
+- Time invested is often more effective when it is spread
+  around. One of the use-cases takes significant time to
+  run (particularly before initial parallelisation), so you
+  should be thinking of running experiments while you're
+  doing something else, then coming back to the results later on.
+  It is your _active_ time that is important, so only when you are
+  thinking and doing - if you are staring at a screen watching
+  results tick past (or waiting for results) for more than 
+  1 min, then you might rethink how you are working. It is
+  sometimes better to decide to wait 1 hour and get rich results,
+  rather than limit yourself to shallow results limited by
+  how long you are willing to wait for things to run. 
+
+- The actual performance part of the the coursework is only
+  worth 60% of the marks, and that is across all three (or two)
+  use-cases. If you can't get much speed-up it is not a disaster
+  (similar to not being able to answer 20% of an exam, when you've
+  already completed 80% of the exam's questions, and know that
+  you aced the first 40%).
+
+- Ultimately, it's a masters course where everybody has already
+  got 40% built-in - parts of the assesment need to actually
+  test skill and insight, and whether people can generalise
+  the approaches and solutions in the course to new problems.
+  
