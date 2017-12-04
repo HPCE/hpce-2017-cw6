@@ -9,19 +9,19 @@ MYLIB_SRC = $(filter-out testu01/mylib/tcode.cpp, $(wildcard testu01/mylib/*.cpp
 
 lib/probdist.a : $(patsubst %.cpp,%.o,$(PROBDIST_SRC))
 	mkdir -p lib
-	-rm $@
+	-rm -f $@
 	ar rcs $@ $^
 	ranlib $@
 
 lib/mylib.a : $(patsubst %.cpp,%.o,$(MYLIB_SRC))
 	mkdir -p lib
-	-rm $@
+	-rm -f $@
 	ar rcs $@ $^
 	ranlib $@
 
 lib/testu01.a : $(patsubst %.cpp,%.o,$(TESTU01_SRC))
 	mkdir -p lib
-	-rm $@
+	-rm -f $@
 	ar rcs $@ $^
 	ranlib $@
 
