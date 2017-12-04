@@ -1,6 +1,8 @@
 HPCE 2017 CW6
 =============
 
+_(2017/12/04 : Clarifying (again) the stress penalty, to make the documentation match the code._
+
 _(2017/11/28 : See the end of the readme for some additional notes)_
 
 The goal of this coursework is to take an existing library
@@ -47,9 +49,12 @@ in mind (or two for a pair):
   time-budget `t` seconds (passed as a command-line parameter), your program should
   respond within 0.5 sec with a bid size `n` printed to `stdout`, and then
   proceed to apply the test. If the total measured execution time of the
-  program is `g` seconds, then the metric is `min(1,exp(-g/t))*log2(n)`.
+  program is `g` seconds, then the metric is `log2(n) * ( (g/t<1) ? 1.0 : exp(-g/t) ) `.
+  The idea is that you should achieve the largest `n` possible within the
+  time budget, [but that you are penalised for exceeding that budget](https://github.com/HPCE/hpce-2017-cw6/issues/19).
   See [drivers/driver_stress.cpp](drivers/driver_stress.cpp) as a model
-  of the logic (though feel free to change the internals).
+  of the logic (though feel free to change the internals), and also see
+  the discussion [here]() for an explanation of the intent.
 
 As part of the input to the use-cases there is also an RNG source
 called the "workload" (see `include/workload.hpp`). This is code
