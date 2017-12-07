@@ -46,7 +46,8 @@ in mind (or two for a pair):
 
 - [Stress testing](drivers/driver_stress.cpp) : Trying to test as large a sample
   as possible within a time budget, using the benchmark Rabbit. Given a
-  time-budget `t` seconds (passed as a command-line parameter), your program should
+  time-budget `t` seconds [of between 2 and 180 seconds](https://github.com/HPCE/hpce-2017-cw6/issues/27)
+  (passed as a command-line parameter), your program should
   respond within 0.5 sec with a bid size `n` printed to `stdout`, and then
   proceed to apply the test. If the total measured execution time of the
   program is `g` seconds, then the metric is `log2(n) * ( (g/t<1) ? 1.0 : exp(-g/t) ) `.
