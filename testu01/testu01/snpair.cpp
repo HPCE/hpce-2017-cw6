@@ -1352,7 +1352,7 @@ void snpair_WriteDataCP (unif01_Gen * gen, const char *TestName,
  */
 
 void snpair_WriteResultsCP (unif01_Gen * gen, chrono_Chrono * Timer,
-   snpair_Res * res, long N, long m)
+   snpair_Res * res, long N, long m, bool mNP2S_Flag)
 {
    printf ("\n---------------------------------------\n");
    printf ("Test based on the 2 nearest points (NP):\n\n");
@@ -1399,7 +1399,7 @@ void snpair_WriteResultsCP (unif01_Gen * gen, chrono_Chrono * Timer,
             printf ("Stat. AD (mNP2)                       :");
             gofw_Writep2 (res->sVal[snpair_mNP2], res->pVal[snpair_mNP2]);
 #if 1
-            if (snpair_mNP2S_Flag) {
+            if (mNP2S_Flag) {
                printf ("Stat. AD after spacings (mNP2-S)      :");
                gofw_Writep2 (res->sVal[snpair_mNP2S], res->pVal[snpair_mNP2S]);
             }
@@ -1414,7 +1414,8 @@ void snpair_WriteResultsCP (unif01_Gen * gen, chrono_Chrono * Timer,
 /*=========================================================================*/
 
 void snpair_ClosePairs (unif01_Gen * gen, snpair_Res * res,
-   long N, long n, int r, int k, int p, int m)
+   long N, long n, int r, int k, int p, int m, bool mNP2S_Flag
+)
 /*
  * Looks at the m closest pairs in the torus and the first m jumps of the
  * process Y_n(t). A simplified version of snpair_ClosePairs.  
@@ -1636,7 +1637,7 @@ void snpair_ClosePairs (unif01_Gen * gen, snpair_Res * res,
    }
 
    if (swrite_Basic)
-      snpair_WriteResultsCP (gen, Timer, res, N, m);
+      snpair_WriteResultsCP (gen, Timer, res, N, m, mNP2S_Flag);
    if (localRes)
       snpair_DeleteRes (res);
    chrono_Delete (Timer);

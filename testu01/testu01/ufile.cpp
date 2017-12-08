@@ -320,6 +320,7 @@ void ufile_DeleteReadBin (unif01_Gen *gen)
    util_Fclose (f2);
    gen->name = (char *)util_Free (gen->name);
    util_Free (gen);
+   co2.clear();
 }
 
 

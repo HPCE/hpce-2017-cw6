@@ -975,20 +975,20 @@ static void Crush (unif01_Gen * gen, int Rep[], TestGlobals &globals)
       snpair_mNP2S_Flag = FALSE;
       ++j2;
       for (i = 0; i < Rep[j2]; ++i) {
-         snpair_ClosePairs (gen, res, 10, 2 * MILLION, 0, 2, 0, 30);
+         snpair_ClosePairs (gen, res, 10, 2 * MILLION, 0, 2, 0, 30, snpair_mNP2S_Flag);
          GetPVal_CPairs (10, res, &j, ", t = 2", j2, globals);
       }
 
       snpair_mNP2S_Flag = TRUE;
       ++j2;
       for (i = 0; i < Rep[j2]; ++i) {
-         snpair_ClosePairs (gen, res, 10, 2 * MILLION, 0, 3, 0, 30);
+         snpair_ClosePairs (gen, res, 10, 2 * MILLION, 0, 3, 0, 30, snpair_mNP2S_Flag);
          GetPVal_CPairs (10, res, &j, ", t = 3", j2, globals);
       }
 
       ++j2;
       for (i = 0; i < Rep[j2]; ++i) {
-         snpair_ClosePairs (gen, res, 5, 2 * MILLION, 0, 7, 0, 30);
+         snpair_ClosePairs (gen, res, 5, 2 * MILLION, 0, 7, 0, 30, snpair_mNP2S_Flag);
          GetPVal_CPairs (10, res, &j, ", t = 7", j2, globals);
       }
 
@@ -2041,25 +2041,25 @@ void BigCrush (unif01_Gen * gen, int Rep[], TestGlobals &globals)
       snpair_mNP2S_Flag = TRUE;
       ++j2;
       for (i = 0; i < Rep[j2]; ++i) {
-         snpair_ClosePairs (gen, res, 30, 6 * MILLION, 0, 3, 0, 30);
+         snpair_ClosePairs (gen, res, 30, 6 * MILLION, 0, 3, 0, 30, snpair_mNP2S_Flag);
          GetPVal_CPairs (40, res, &j, ", t = 3", j2, globals);
       }
 
       ++j2;
       for (i = 0; i < Rep[j2]; ++i) {
-         snpair_ClosePairs (gen, res, 20, 4 * MILLION, 0, 5, 0, 30);
+         snpair_ClosePairs (gen, res, 20, 4 * MILLION, 0, 5, 0, 30, snpair_mNP2S_Flag);
          GetPVal_CPairs (40, res, &j, ", t = 5", j2, globals);
       }
 
       ++j2;
       for (i = 0; i < Rep[j2]; ++i) {
-         snpair_ClosePairs (gen, res, 10, 3 * MILLION, 0, 9, 0, 30);
+         snpair_ClosePairs (gen, res, 10, 3 * MILLION, 0, 9, 0, 30, snpair_mNP2S_Flag);
          GetPVal_CPairs (20, res, &j, ", t = 9", j2, globals);
       }
 
       ++j2;
       for (i = 0; i < Rep[j2]; ++i) {
-         snpair_ClosePairs (gen, res, 5, 2*MILLION, 0, 16, 0, 30);
+         snpair_ClosePairs (gen, res, 5, 2*MILLION, 0, 16, 0, 30, snpair_mNP2S_Flag);
          GetPVal_CPairs (10, res, &j, ", t = 16", j2, globals);
       }
       snpair_DeleteRes (res);
@@ -4139,12 +4139,12 @@ std::vector<bbattery_Result> bbattery_pseudoDIEHARD (unif01_Gen * gen)
    {
       snpair_Res *res;
       res = snpair_CreateRes ();
-      snpair_ClosePairs (gen, res, 100, 8000, 0, 2, 2, 1);
+      snpair_ClosePairs (gen, res, 100, 8000, 0, 2, 2, 1, snpair_mNP2S_Flag);
       bbattery_pVal[++j] = res->pVal[snpair_NP];
       TestNumber[j] = ++j2;
       strcpy (bbattery_TestNames[j], "ClosePairs");
 
-      snpair_ClosePairs (gen, res, 20, 4000, 0, 3, 2, 1);
+      snpair_ClosePairs (gen, res, 20, 4000, 0, 3, 2, 1, snpair_mNP2S_Flag);
       bbattery_pVal[++j] = res->pVal[snpair_NP];
       TestNumber[j] = ++j2;
       strcpy (bbattery_TestNames[j], "ClosePairs");

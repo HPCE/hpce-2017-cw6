@@ -176,9 +176,12 @@ void snpair_WriteResultsCP (unif01_Gen *gen, chrono_Chrono *Timer,
 extern lebool snpair_mNP2S_Flag;
 
 
-
+// Note: this was originally relying on snpair_mNP2S_Flag, but this
+// is actually flipped during bbattery. The flag is now passed via
+// a local variable, and captures the value of snpair_mNP2S_Flag at call-time.
+// It is recommended that the flag is set explicitly.
 void snpair_ClosePairs (unif01_Gen *gen, snpair_Res *res,
-                        long N, long n, int r, int t, int p, int m);
+                        long N, long n, int r, int t, int p, int m, bool mNP2S_Flag=snpair_mNP2S_Flag);
 
 
 
