@@ -161,7 +161,7 @@ The target environment is either a `g3.4xlarge` (note that this is
 newer than in previous courseworks), or a `c4.8xlarge`. You
 should indicate in `group.md` which one you want to use.
 Two additional libraries will be available [see #17](https://github.com/HPCE/hpce-2017-cw6/issues/17):
-- boost
+- boost (including libboost-system1.55-dev and libboost-filesystem1.55-dev)
 - CUDA
 
 The marks for the coursework are split up into three parts:
