@@ -5,6 +5,8 @@ _(2017/12/04 : Clarifying (again) the stress penalty, to make the documentation 
 
 _(2017/11/28 : See the end of the readme for some additional notes)_
 
+This coursework is due on Fri 15th Dec at 22:00.
+
 The goal of this coursework is to take an existing library
 called [TestU01](http://simul.iro.umontreal.ca/testu01/tu01.html),
 and parallelise, optimise, or otherwise accelerate it.
@@ -173,8 +175,14 @@ The marks for the coursework are split up into three parts:
                         suggestions for improvement - see the attached `group.md`.
 
 - Individual analysis (20%) : Each individual should separately submit a 
-                       document `reflection.md` via blackboard (this is something that
-                       is looking back, so is not included yet).
+                       document `reflection.md` via blackboard.
+
+The blackboard submission of hashes this year has not got smoothly for some
+reason; I think a bunch of people forgot. The main purpose for this is to
+provide some safety and a paper trail for both students and staff, so I strongly
+encourage you to submit a group hash to blackboard. It's essentially providing
+proof that a particular submission existed at a point in time, and also makes
+it much more likely that the version committed is compileable.
 
 Getting started
 ---------------
