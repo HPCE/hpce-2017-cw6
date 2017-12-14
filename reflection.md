@@ -50,8 +50,9 @@ will need to work that bit harder to justify why and where they have learnt
 something._
 
 _The load of this component is expected to be at most an hour per
-person, and up to 1000 words. *You do not need to write 1000 words to
-get good marks.*_
+person, and up to 500 words. *You do not need to write 500 words to
+get good marks.* The 50 word limit per answer [is mainly to encourage
+specific-ness and reduce work-load](https://github.com/HPCE/hpce-2017-cw6/issues/42)._
 
 Connections with existing courses and knowledge
 ===============================================
