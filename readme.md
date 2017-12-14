@@ -1,6 +1,9 @@
 HPCE 2017 CW6
 =============
 
+_(2017/12/14 : Updated the final AMI to reflect changes requested. This should not affect people
+unless they are using GPUs or extra libraries._
+
 _(2017/12/04 : Clarifying (again) the stress penalty, to make the documentation match the code._
 
 _(2017/11/28 : See the end of the readme for some additional notes)_
@@ -162,16 +165,19 @@ Assessment
 The target environment is either a `g3.4xlarge` (note that this is
 newer than in previous courseworks), or a `c4.8xlarge`. You
 should indicate in `group.md` which one you want to use.
-Two additional libraries will be available [see #17](https://github.com/HPCE/hpce-2017-cw6/issues/17):
-- boost (including libboost-system1.55-dev and libboost-filesystem1.55-dev)
-- CUDA
+The AMI used will be `HPCE-2017-GPU-Image-v2`. This is identical
+to `HPCE-2017-GPU-Image` except for:
+- Additional [libraries will be available](https://github.com/HPCE/hpce-2017-cw6/issues/17):
+- The NVidia drivers have been [updated for the G3 instance GPUs](https://github.com/HPCE/hpce-2017-cw6/issues/39).
+In use-cases which don't rely on those libraries or are not using GPUs, the two
+AMIs are expected to behave identically.
 
 The marks for the coursework are split up into three parts:
 
 - Performance (60%) : How well it does in the two (pairs) or three (triples) use-cases.
                       As before, each pair should nominate two uses-cases.
 
-- Group analsis (20%) : Each group needs to provide two (pairs) or three (triples)
+- Group analysis (20%) : Each group needs to provide two (pairs) or three (triples)
                         suggestions for improvement - see the attached `group.md`.
 
 - Individual analysis (20%) : Each individual should separately submit a 
